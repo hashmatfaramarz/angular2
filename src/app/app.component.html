@@ -1,0 +1,35 @@
+<div class="container">
+    <!--Header-->
+    <div class="row">
+        <div class="col-md-12">
+            <img src="assets/images/baby.jpg" />
+        </div>
+    </div>
+
+    <!--Navigation-->
+    <div class="row">
+        <div class="col-md-12">
+        <ul class="nav nav-tabs nav-justified">
+            <li><a [routerLink]="['home']" routerLinkActive="activeLink">home</a></li>
+            <li><a [routerLink]="['user']" routerLinkActive="activeLink">users</a></li>
+            <li><a [routerLink]="['product']" routerLinkActive="activeLink">product</a></li>
+            <li><a [routerLink]="['dashboard']" routerLinkActive="activeLink">dashboard</a></li>
+        </ul>
+        </div>
+    </div>
+
+    <!--maincontent-->
+    <div class="row maincontent">
+        <div class="col-md-12">
+            <h1><ng-content></ng-content></h1>
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+
+    <!--footer-->
+    <div class="row footer">
+        <div class="col-md-12">
+            <p>all right reserved</p>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,64 @@
+<h1 hide>it should be hide</h1>
+select color: <input type="text" [(ngModel)]="color"/>
+slice name:<input type="number" [(ngModel)]="slice"/>
+    <h1 class="text-center" 
+    [ngClass]="'one two'"
+    [ngStyle]="{'color':color}">
+    {{pageTitle | uppercasepipe}}
+    </h1>
+    <div *ngIf="products.length">
+        no of row: <select [(ngModel)]="display">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+        </select>
+        enter your productName: 
+        <input type="text" [(ngModel)]="productName"/>
+
+        <h2 highlight>current rating: {{cRating}}</h2>
+    <table class="table table-bordered">
+        <tr>
+            <th><button (click)="imageStatus()">
+            {{imageVisible ? "hide" : "show"}}</button></th>
+            <th>id</th>
+            <th>name</th>
+            <th>name-slice</th>
+            <th>price</th>
+            <th>quantity</th>
+            <th>Date</th>
+            <th>Rating</th>
+        </tr>
+        <tr *ngFor="let product of products | slice:0:display | search:productName">
+            <td><img *ngIf="imageVisible"
+                [title]="product.name" 
+                [src]="product.logo"
+                [style.width.px]="imageWidth"
+                [style.height.px]="imageHeight"            
+             /></td>
+            <td>{{product.id }}</td>
+            <td>{{product.name|uppercasepipe}}</td>
+            <td>{{product.name|slice:0:slice}}</td>
+            <td>{{product.price | currency:'USD':true}}</td>
+            <td>{{product.quantity| number}}</td>
+            <td>{{product.date | date : 'yyyy/MM/dd'}}</td>
+            <td>
+                <rating [pRating]="product.rate" [pQuantity]="product.quantity"
+                        (currentRating)="cRating=$event.pRating">
+                </rating>
+            </td>
+        </tr> 
+    </table>
+    </div>
+    <div *ngIf="!products.length" class="text-center alert alert-danger">NO DATA</div>
+<hr/>
+    change productName :<input type="text" [(ngModel)]="products[0].name" />
+    <h2 class="text-center">json built in  pipe</h2>
+    {{products | json}}
+
+    <h2>json custom pipe</h2>
+    {{products | jsonPipe}}
+
+    <h2>asyn pipe: {{uName | async}}</h2>
+
+    

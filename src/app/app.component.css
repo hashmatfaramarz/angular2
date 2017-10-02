@@ -1,0 +1,30 @@
+li {
+    font-size: large;
+}
+
+div.panel-heading {
+   font-size: x-large; 
+}
+
+.one{
+        color: blue;
+}
+.two{
+    background: yellow;
+}
+img{
+    height: 300px;
+    width:100%;
+}
+.footer{
+    padding:10px;
+    text-align:center;
+    background: darkblue;
+    color:white;
+}
+.maincontent{
+    min-height: 270px;
+}
+.activeLink{
+    background-color: gray!important;
+}

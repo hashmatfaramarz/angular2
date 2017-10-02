@@ -1,0 +1,37 @@
+<h1>{{pageTitle}}</h1>
+
+<h3 class="text-center">Id {{userId}}</h3>
+<!--<h2>{{user| json}}</h2>-->
+
+<div *ngIf='user'>
+    <a [routerLink]="['/dashboard']">go back</a>
+    <table class="table">
+
+        <tr>
+            <th>id</th>
+            <td>{{user.id}}</td>
+        </tr>
+        <tr>
+            <th>name</th>
+            <td>{{user.name}}</td>
+        </tr>
+        <tr>
+            <th>userName</th>
+            <td>{{user.username}}</td>
+        </tr>
+        <tr>
+            <th>Email</th>
+            <td>{{user.email}}</td>
+        </tr>
+        <tr>
+            <td><a [routerLink]="['/dashboard']" class="btn btn-success">
+    go to dashboard-through HTML</a></td>
+
+            <button (click)="goDashboard()" class="btn btn-primary">
+            go to dashboard-through class
+        </button>
+            <button (click)="goBack()" class="btn btn-primary pull-right">
+            go back
+        </button>
+        </tr>
+    </table>

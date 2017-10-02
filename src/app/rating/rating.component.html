@@ -1,0 +1,5 @@
+<div (click)="ratingCheck(pRating)">
+    <p *ngIf="pRating>4" [ngStyle]="{'color':'green'}">Excellent {{pQuantity}} product left</p>
+    <p *ngIf="pRating>2 && pRating<=4">Average {{pQuantity}} product left</p>
+    <p *ngIf="pRating<=2">Poor {{pQuantity}} product left</p>
+</div>

@@ -1,0 +1,31 @@
+<h1 class="text-center">{{pageTitle}}</h1>
+
+<!--<pre>{{users | json}}</pre>-->
+<!--<div *ngIf="users">if users have data then dispaly</div>-->
+<a [routerLink]="['/adduser']" class="btn btn-success">add new user</a>
+<table class="table">
+    <tr class="bg-primary">
+        <th>ID</th>
+        <th>Name</th>
+        <!--<th>UserName</th>-->
+        <th>Email</th>
+        <th>Action</th>
+    </tr>
+    <tr *ngFor="let user of users">
+        <td><a [routerLink]="['/userProfile',user.id]">{{user.id}}</a></td>
+        <td>{{user.name}}</td>
+        <!--<td>{{user.username}}</td>-->
+        <td>{{user.email}}</td>
+        <td>
+            <a class="btn btn-primary" title="view" [routerLink]="['/userProfile',user.id]">
+                <span class="glyphicon glyphicon-edit"></span>
+            </a>
+            <a class="btn btn-success" title="edit" [routerLink]="['']">
+                <span class="glyphicon glyphicon-edit"></span>
+            </a>
+            <a class="btn btn-primary" title="delete" [routerLink]="['']">
+                <span class="glyphicon glyphicon-remove"></span>
+            </a>
+        </td>
+    </tr>
+</table>

@@ -1,0 +1,27 @@
+<!--<input type="text" #username(keyup)="0"/>
+{{username.value}}-->
+
+<h1 class="text-center">{{pageTitle}}</h1>
+<form #userform="ngForm" (ngSubmit)="addUser(userform.value)"
+[ngStyle]="{'width':'400px'}">
+    <div class="from-group">
+        <label>Enter Name</label>
+        <input type="text" class="form-control" name="name" ngModel />
+    </div>
+    <div class="from-group">
+        <label>Enter UserName</label>
+        <input type="text" class="form-control" name="username" ngModel/>
+    </div>
+    <div class="from-group">
+        <label>Enter Email</label>
+        <input type="email" class="form-control" name="email" ngModel/>
+    </div>
+    <div class="form-group">
+        <label>select city</label>
+        <select class="form-control" name="city" ngModel>
+            <option value="delhi">Delhi</option>
+            <option value="goa">Goa</option>
+        </select>
+    </div>
+    <input type="submit" value="add user" class="btn btn-primary" />
+</form>
